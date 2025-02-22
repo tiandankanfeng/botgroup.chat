@@ -1,24 +1,24 @@
 // 首先定义模型配置
 export const modelConfigs = [
   {
-    model: "qwen-plus",
+    model: "qwen-max",
     apiKey: "DASHSCOPE_API_KEY", // 这里存储环境变量的 key 名称
-    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
   },
   {
-    model: "deepseek-v3",
+    model: "deepseek-r1-distill-qwen-32b",
     apiKey: "DASHSCOPE_API_KEY",
-    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
   },
   {
-    model: "hunyuan-standard",
-    apiKey: "HUNYUAN_API_KEY",
-    baseURL: "https://api.hunyuan.cloud.tencent.com/v1"
+    model: "Moonshot",     
+    apiKey: "MOONSHOT_API_KEY",                
+    baseURL: "https://api.moonshot.cn"
   },
   {
-    model: "ep-20250217191935-wzj8l",//火山引擎接入点（改成自己的）
+    model: "ep-20240610095558-x82x9",//火山引擎接入点（改成自己的）
     apiKey: "ARK_API_KEY",
-    baseURL: "https://ark.cn-beijing.volces.com/api/v3"
+    baseURL: "https://ark.cn-beijing.volces.com/api/v3/chat/completions"
   }
 ] as const;
 export type ModelType = typeof modelConfigs[number]["model"];
@@ -78,11 +78,13 @@ export function generateAICharacters(groupName: string): AICharacter[] {
     },
     { 
       id: 'ai4', 
-      name: "元宝", 
-      personality: "yuanbao",
+      name: "Moonshot", 
+      personality: "Moonshot",
       model: modelConfigs[2].model,
       avatar: "/img/yuanbao.png",
-      custom_prompt: `你是一个名叫"元宝"的硅基生命体，你当前在一个叫"${groupName}" 的聊天群里`
+      custom_prompt: `你是一个名叫"Moonshot"的硅基生命体，你当前在一个叫"${groupName}" 的聊天群里`
+
+
     },
     { 
       id: 'ai5', 
@@ -103,7 +105,7 @@ export function generateAICharacters(groupName: string): AICharacter[] {
     { 
       id: 'ai7', 
       name: "DeepSeek", 
-      personality: "deepseek-v3",
+      personality: "deepseek-r1-distill-qwen-32b",
       model: modelConfigs[1].model,
       avatar: "/img/ds.svg",
       custom_prompt: `你是一个名叫"DeepSeek"的硅基生命体，你当前在一个叫"${groupName}" 的聊天群里`
