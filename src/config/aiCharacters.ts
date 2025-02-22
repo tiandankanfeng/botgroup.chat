@@ -3,22 +3,22 @@ export const modelConfigs = [
   {
     model: "qwen-max",
     apiKey: "DASHSCOPE_API_KEY", // 这里存储环境变量的 key 名称
-    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
   },
   {
     model: "deepseek-r1-distill-qwen-32b",
     apiKey: "DASHSCOPE_API_KEY",
-    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+    baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
   },
   {
-    model: "Moonshot",     
+    model: "moonshot-v1-32k",     
     apiKey: "MOONSHOT_API_KEY",                
-    baseURL: "https://api.moonshot.cn"
+    baseURL: "https://api.moonshot.cn/v1"
   },
   {
     model: "ep-20240610095558-x82x9",//火山引擎接入点（改成自己的）
     apiKey: "ARK_API_KEY",
-    baseURL: "https://ark.cn-beijing.volces.com/api/v3/chat/completions"
+    baseURL: "https://ark.cn-beijing.volces.com/api/v3"
   }
 ] as const;
 export type ModelType = typeof modelConfigs[number]["model"];
